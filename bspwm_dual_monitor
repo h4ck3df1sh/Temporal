@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# set up the two monitors for bspwm
+
+dual_monitor=$(xrandr --query | grep 'Virtual2')
+if [[ $dual_monitor = *connected* ]]; then
+    xrandr --output Virtual1 --primary --mode 2560x1440 --rotate normal --output Virtual2 --mode 1080x1920 --rotate normal --left-of Virtual1
+fi
+
